@@ -1,5 +1,6 @@
 const express = require("express");
-const router = express.Router();    
+const router = express.Router();  
+const verifyToken = require('../middleware/token.js')  
 
 const {
     createProduct,
@@ -9,8 +10,8 @@ const {
     deleteProduct,
 } = require("../controllers/productsController")
 
-router.route("/").get(getAllProducts).post(createProduct)
-router.route("/:id").get(getSingleProduct).patch(updateProduct).delete(deleteProduct)   
+// router.route("/").get(verifyToken, getAllProducts).post(verifyToken, createProduct)
+// router.route("/:id").get(verifyToken, getSingleProduct).patch(verifyToken, updateProduct).delete(verifyToken, deleteProduct)   
 
 
 module.exports = router
