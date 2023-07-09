@@ -1,6 +1,6 @@
-// const express = require("express");
+
 const User = require('../models/user');
-// const { createToken } = require("typescript");
+
 const Token = require("../models/token");
 const {loginSchema, signupSchema} = require("../models/loginSchema");
 
@@ -46,7 +46,7 @@ const login = async (req, res) => {
           return res.status(400).json({ error: error.details[0].message });
         }
     
-        // Check if the user exists
+   
         const user = await User.findOne({ email: req.body.email });
         if (!user) {
           return res.status(401).json({ error: 'Invalid credentials' });
